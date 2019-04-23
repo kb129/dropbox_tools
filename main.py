@@ -1,11 +1,25 @@
 import sys
-import dropbox_tools as dbox
+import paper_tools as paper
 import _token
 import json
 
-def get_doc_ids(access_token):
-    items = dbox.docs(access_token).getlist().json()
-    return items["doc_ids"]
+class tools:
+
+    def __init__(self, access_token):
+        self.p = paper.paper_tools(access_token)
+
+    def get_doc_ids(self):
+        items = self.p.getlist().json()
+        return items["doc_ids"]
+
+    def make_correspond_table(self):
+        l = {}
+        for c in self.get_doc_ids():
+            l[self.p.get_title(c)] = c
+        return l
 
 
-print(get_doc_ids(_token.access_token))
+if __name__ == "__main__":
+    argv = sys.argv
+    t = tools(_token.access_token)
+    print(t.make_correspond_table().keys())

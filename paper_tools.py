@@ -2,7 +2,7 @@ import sys
 import requests
 import json
 
-class docs:
+class paper_tools:
     # constructor
     def __init__(self, access_token):
         self.access_token = access_token
@@ -42,14 +42,21 @@ class docs:
 
         headers = {
             "Authorization": "Bearer " + self.access_token,
-            "Dropbox-API-Arg": "{\"doc_id\":\"" + fid + ",\"export_format\":{\".tag\":\"markdown\"}}"
+            "Dropbox-API-Arg": "{\"doc_id\":\"" + fid + "\",\"export_format\":{\".tag\":\"markdown\"}}"
         }
 
         r = requests.post(url, headers=headers)
         return r
 
+    # get title of "fid"
+    def get_title(self, fid):
+        r = self.download_md(fid)
+        return eval(r.headers['Dropbox-Api-Result'])['title']
+
+
+
 
 if __name__ == "__main__":
     argv = sys.argv
-    d = docs(argv[1])
+    d = paper_tools(argv[1])
     print(d.getlist().content.decode())
