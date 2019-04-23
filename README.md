@@ -7,7 +7,9 @@ set your Dropbox API access token to "access_token" param.
 
 ``` python
 import dropbox_tools as dbox
+import json
+
 access_token = 'your_access_token'
-l = dbox.docs(access_token).getlist()
-print(l.content)
+j = dbox.docs(access_token).getlist().json()
+print(j)
 ```
