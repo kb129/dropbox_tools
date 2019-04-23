@@ -1,0 +1,4 @@
+_token.py
+*.md
+.vscode/*
+__pycache__/*
