@@ -4,7 +4,7 @@ import _token
 import json
 
 def get_doc_ids(access_token):
-    items = dbox.docs_list(access_token).json()
+    items = dbox.docs(access_token).getlist().json()
     return items["doc_ids"]
 
 
