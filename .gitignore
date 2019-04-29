@@ -2,3 +2,4 @@ _token.py
 *.md
 .vscode/*
 __pycache__/*
+.idea/
