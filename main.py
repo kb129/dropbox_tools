@@ -3,8 +3,7 @@ import paper_tools as paper
 import _token
 import json
 
-class tools:
-
+class dropbox_tools:
     def __init__(self, access_token):
         self.p = paper.paper_tools(access_token)
 
@@ -21,5 +20,5 @@ class tools:
 
 if __name__ == "__main__":
     argv = sys.argv
-    t = tools(_token.access_token)
+    t = dropbox_tools(_token.access_token)
     print(t.make_correspond_table().keys())
