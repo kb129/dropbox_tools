@@ -17,6 +17,16 @@ class dropbox_tools:
             l[self.p.get_title(c)] = c
         return l
 
+    def upload_file(self, path):
+        self.p.create(path)
+
+    def download(self, fid, mode="md"):
+        if mode == "md":
+            return self.p.download_md(fid)
+        else:
+            # TODO
+            print("in preparation")
+
 
 if __name__ == "__main__":
     argv = sys.argv
