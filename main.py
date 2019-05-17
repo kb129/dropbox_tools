@@ -1,7 +1,9 @@
 import dropbox_tools
-import _token
 
-tools = dropbox_tools.dropbox_tools(_token.access_token)
+with open("accesstoken.txt", mode="r", encoding="UTF-8") as f:
+    access_token = f.read()
+    tools = dropbox_tools.dropbox_tools(access_token)
+
 t = tools.make_correspond_table()
 i_to_name = []
 i = 0
