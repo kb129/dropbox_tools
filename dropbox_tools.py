@@ -7,13 +7,13 @@ class dropbox_tools:
     def __init__(self, access_token):
         self.p = paper.paper_tools(access_token)
 
-    def get_doc_ids(self):
+    def __get_doc_ids(self):
         items = self.p.getlist().json()
         return items["doc_ids"]
 
     def make_correspond_table(self):
         l = {}
-        for c in self.get_doc_ids():
+        for c in self.__get_doc_ids():
             l[self.p.get_title(c)] = c
         return l
 
