@@ -3,3 +3,4 @@ _token.py
 .vscode/*
 __pycache__/*
 .idea/
+accesstoken.txt
